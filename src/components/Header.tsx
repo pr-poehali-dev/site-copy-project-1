@@ -6,85 +6,79 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm border-b">
+    <header className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Icon name="Users" className="h-8 w-8 text-blue-600 mr-2" />
-            <span className="text-xl font-bold text-gray-900">Попутники</span>
+            <Icon name="Car" className="h-8 w-8 text-yellow-400 mr-2" />
+            <span className="text-xl font-bold">Земляки</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a
               href="#"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
             >
-              Найти попутчика
+              Заказать такси
             </a>
             <a
               href="#"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
             >
-              Предложить поездку
+              Направления
             </a>
             <a
               href="#"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
             >
-              Как это работает
+              Тарифы
             </a>
             <a
               href="#"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
             >
-              Отзывы
+              Контакты
             </a>
           </nav>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-700">
-              Войти
-            </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              Регистрация
+          {/* Phone and Menu */}
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-2">
+              <Icon name="Phone" className="h-4 w-4 text-yellow-400" />
+              <span className="text-sm font-medium">+7 (800) 123-45-67</span>
+            </div>
+
+            {/* Mobile menu button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden text-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <Icon name="Menu" className="h-6 w-6" />
             </Button>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Icon name="Menu" className="h-6 w-6" />
-          </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
-            <div className="flex flex-col space-y-4">
-              <a href="#" className="text-gray-700 hover:text-blue-600">
-                Найти попутчика
+          <div className="md:hidden py-4 border-t border-gray-700">
+            <nav className="flex flex-col space-y-4">
+              <a href="#" className="text-gray-300 hover:text-yellow-400">
+                Заказать такси
               </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600">
-                Предложить поездку
+              <a href="#" className="text-gray-300 hover:text-yellow-400">
+                Направления
               </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600">
-                Как это работает
+              <a href="#" className="text-gray-300 hover:text-yellow-400">
+                Тарифы
               </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600">
-                Отзывы
+              <a href="#" className="text-gray-300 hover:text-yellow-400">
+                Контакты
               </a>
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="ghost">Войти</Button>
-                <Button className="bg-blue-600 hover:bg-blue-700">
-                  Регистрация
-                </Button>
-              </div>
-            </div>
+            </nav>
           </div>
         )}
       </div>
